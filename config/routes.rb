@@ -1,7 +1,10 @@
 Chowheroes::Application.routes.draw do
+
   root :to => 'users#new'
+
   post "twilio/" => "twilio#create"
   get "twilio/callback" => "twilio#callback"
+  
   resources :users
   resources :donations
   resources :sessions, :only => ['create', 'destroy']
