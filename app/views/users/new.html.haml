@@ -1,0 +1,33 @@
+%h1 Chow Heroes!
+
+- if flash[:error]
+  .error
+    %p= flash[:error]
+
+%h2 Sign Up
+.sign_up_form
+  = form_for @user  do |f|
+    = f.label :email
+    = h f.email_field :email, :required => true
+    %br
+    = f.label :username
+    = h f.text_field :username, :required => true
+    %br
+    = f.label :password
+    = h f.password_field :password, :required => true
+    %br
+    = f.submit 'Submit'
+
+%h2 Log In
+.login_form
+  = form_tag sessions_path do
+    = label_tag :username
+    = h text_field_tag :username
+    %br
+    = label_tag :password
+    = h password_field_tag :password
+    %br 
+    = submit_tag 'Submit' 
+
+
+
