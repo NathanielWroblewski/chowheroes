@@ -32,6 +32,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+# twilio for messaging services
+gem 'twilio-ruby'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
