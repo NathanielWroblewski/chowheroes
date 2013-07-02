@@ -5,12 +5,16 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(params[:user])
-    if @user.id.nil?
-    	redirect_to root_path :flash => { :error => "Invalid username, email, or password."}
-    else session[:id] = @user.id
-    	redirect_to @user
-    end
+    user_params = ActionController::Parameters.new(params[:user])
+    user_params.permit!
+    @user = User.create(user_params)
+    p @user
+    p @user.errors.full_messages
+   # if @user.id.nil?
+    #	redirect_to root_path :flash => { :error => "Invalid username, email, or password."}
+   # else session[:id] = @user.id
+    #	redirect_to @user
+   # end
   end
 
   def show
